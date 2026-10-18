@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cj3nmh22k6a2"]
+
+[ext_resource type="Texture2D" uid="uid://d0joqd18y5bre" path="res://graphics/ship/Red-White Futuristic Fighter Jet.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://ccsri204qgiad" path="res://scenes/player.gd" id="1_g2els"]
+
+[node name="Player" type="CharacterBody2D" unique_id=2080743882]
+collision_mask = 6
+script = ExtResource("1_g2els")
+
+[node name="PlayerImage" type="Sprite2D" parent="." unique_id=551569151]
+position = Vector2(1.1563302e-05, 7.6293945e-06)
+scale = Vector2(0.3, 0.31)
+texture = ExtResource("1_3vyb7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1088400441]
+polygon = PackedVector2Array(-1, -190, 31, -97, 45, -40, 51, -20, 93, 21, 97, 4, 98, -50, 103, 6, 105, 21, 110, 38, 134, 60, 142, 107, 132, 99, 115, 93, 68, 94, 63, 98, 78, 121, 81, 152, 50, 143, 45, 128, 41, 135, 18, 134, 13, 126, 3, 148, -12, 123, -14, 135, -39, 133, -42, 123, -46, 140, -81, 152, -78, 125, -59, 96, -71, 93, -113, 93, -133, 98, -139, 108, -136, 57, -112, 37, -106, 24, -103, 7, -101, -51, -97, 6, -95, 22, -51, -19, -45, -39, -27, -111)
+
+[node name="MarkerStartPosition" type="Marker2D" parent="." unique_id=1650850280]
+position = Vector2(0, -203)
+gizmo_extents = 100.0
+
+[node name="LaserTimer" type="Timer" parent="." unique_id=2087865886]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
